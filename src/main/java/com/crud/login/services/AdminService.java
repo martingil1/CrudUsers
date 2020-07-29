@@ -1,4 +1,4 @@
 package com.crud.login.services;
 
-public class AdminUser {
+public class AdminService {
 }
