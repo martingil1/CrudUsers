@@ -1,5 +1,6 @@
 package com.crud.login.models;
 
+import com.crud.login.models.dtos.AddUserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,19 +29,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @com.sun.istack.NotNull
+    @NotNull
     @Column(name = "name")
     private String name;
 
-    @com.sun.istack.NotNull
+    @NotNull
     @Column(name = "last_name")
     private String lastName;
 
-    @com.sun.istack.NotNull
+    @NotNull
     @Column(name = "email")
     private String email;
 
-    @com.sun.istack.NotNull
+    @NotNull
     @Column(name = "password")
     private String password;
 
@@ -50,5 +52,15 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public static User fromDto(AddUserDTO userDTO) {
+
+        return User.builder()
+                .name(userDTO.getName())
+                .lastName(userDTO.getLastName())
+                .email(userDTO.getEmail())
+                .password(userDTO.getPassword())
+                .build();
+    }
 
 }
