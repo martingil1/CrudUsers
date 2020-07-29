@@ -11,11 +11,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-import static com.crud.login.utils.DtoErrorMessage.MANDATORY_NAME;
-import static com.crud.login.utils.DtoErrorMessage.MANDATORY_LAST_NAME;
-import static com.crud.login.utils.DtoErrorMessage.MANDATORY_EMAIL;
-import static com.crud.login.utils.DtoErrorMessage.MANDATORY_PASSWORD;
 import static com.crud.login.utils.DtoErrorMessage.INVALID_NAME_FORMAT;
+import static com.crud.login.utils.DtoErrorMessage.MANDATORY_EMAIL;
+import static com.crud.login.utils.DtoErrorMessage.MANDATORY_LAST_NAME;
+import static com.crud.login.utils.DtoErrorMessage.MANDATORY_NAME;
+import static com.crud.login.utils.DtoErrorMessage.MANDATORY_PASSWORD;
 
 @Data
 @Builder
