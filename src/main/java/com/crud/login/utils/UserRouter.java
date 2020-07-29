@@ -4,4 +4,6 @@ public class UserRouter {
 
     public static final String USER_URL = "/users";
 
+    public static final String USER_ID_URL = "/{user-id}";
+
 }

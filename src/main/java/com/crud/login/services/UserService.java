@@ -13,13 +13,26 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User saveUser (AddUserDTO newUser){
+    public User saveUser(AddUserDTO newUser) {
 
         if (userRepository.existsByEmail(newUser.getEmail())) {
             throw new EmailExistException();
         }
 
         return userRepository.save(User.fromDto(newUser));
+    }
+
+    public Boolean existsByEmailAndPassword(String email, String password) {
+
+        return userRepository.existsByEmailAndPassword(email, password);
+    }
+
+    public User delete(String password, Integer idUser) {
+
+        User deletedUser = userRepository.findByIdAndPassword(idUser, password);
+        userRepository.delete(deletedUser);
+
+        return deletedUser;
     }
 
 }
